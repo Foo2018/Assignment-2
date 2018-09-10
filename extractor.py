@@ -3,7 +3,6 @@ from extraction_abstract import ExtractionAbstract
 from component import Component
 import os
 import glob
-import sys
 
 """ 
 This module receives data from files or folders then
@@ -53,17 +52,14 @@ class Extractor(ExtractionAbstract):
                 function_name = self._extract_functions(line)
                 attribute_name = self._extract_attributes(line)
                 if class_name:
-                    comp = self.component_dict.get(class_name[0])
-                    if comp is None:
-                        comp = Component()
+                    comp = Component()
                     comp.set_name(class_name[0])
                     parent = self._extract_parents(line)
                     for item in parent:
-                        if item != 'object':
-                            parent = self.component_dict.get(item)
-                            if parent is None:
-                                parent = Component()
-                                parent.set_name(item)
+                        parent = self.component_dict.get(item)
+                        if parent is None:
+                            parent = Component()
+                            parent.set_name(item)
                         comp.get_parents().append(parent)
                     self.component_dict[class_name[0]] = comp
                     attribute_dictionary = {}
@@ -71,11 +67,11 @@ class Extractor(ExtractionAbstract):
                     try:
                         function_name = function_name[0]
                         comp.get_functions().append(function_name)
-                    except UnboundLocalError as err:
+                    except Exception as err:
                         print('Class has not been declared that contains '
                               'the "{0}" function'.format(function_name))
                         print(err)
-                        return
+                        raise
                 elif attribute_name:
                     try:
                         if comp.get_functions() == ['__init__']:
@@ -83,11 +79,9 @@ class Extractor(ExtractionAbstract):
                             data_type_dict = self._extract_defaults_data_types(line)
                             attribute_dictionary[attr_name] = data_type_dict
                             comp.set_attributes(attribute_dictionary)
-                    except UnboundLocalError as err:
-                        print('Class has not been declared for '
-                              '"{0}" attribute'.format(attr_name))
+                    except Exception as err:
                         print(err)
-                        return
+                        raise
 
     # Performs the regular expressions search and extraction
     @staticmethod
@@ -108,16 +102,13 @@ class Extractor(ExtractionAbstract):
     def _extract_parents(self, line):
         dependency_list = []
         regex = '^class\s\w+\((.*)\)'
-        if not self._regex_search(regex, line):
-            return ""
-        else:
-            dependency_names = self._regex_search(regex, line)[0]
-            regex_list = (re.split(r',', dependency_names))
-            for item in regex_list:
-                if item != 'object':
-                    stripped_item = item.strip()
-                    dependency_list.append(stripped_item)
-            return dependency_list
+        dependency_names = self._regex_search(regex, line)[0]
+        regex_list = (re.split(r',', dependency_names))
+        for item in regex_list:
+            if item != 'object':
+                stripped_item = item.strip()
+                dependency_list.append(stripped_item)
+        return dependency_list
 
     # sends regular expressions statement to _regex_search() and returns
     # function result.
@@ -129,13 +120,13 @@ class Extractor(ExtractionAbstract):
     # attribute(s) result.
     def _extract_attributes(self, line):
         regex = '\s{2}self\.(\w+)'
-        regex2 = '\s{2}self\.\w+(\(\))'
+        # regex2 = '\s{2}self\.\w+(\(\))'
         reg1 = self._regex_search(regex, line)
-        reg2 = self._regex_search(regex2, line)
-        if reg2:
-            return
-        else:
-            return reg1
+        # reg2 = self._regex_search(regex2, line)
+        # if reg2:
+        # return
+        # else:
+        return reg1
 
     # Used to place attribute default values & data types in a dict
     def _extract_defaults_data_types(self, line):
@@ -178,7 +169,6 @@ class Extractor(ExtractionAbstract):
             return "int"
         else:
             print("No data type detected for '{0}'".format(attr_name))
-            #sys.exit(1)
 
     # allows other classes to access the component dictionary
     def get_component_dictionary(self):
@@ -186,12 +176,4 @@ class Extractor(ExtractionAbstract):
 
 
 # prints output code to see if methods functioning ok
-if __name__ == "__main__":
-    import doctest
 
-    doctest.testmod()
-    e = Extractor()
-    e.set_file('mammals.py')
-    f = e.get_component_dictionary()
-    for obj in f:
-        print("Object {0} variables are: {1}".format(obj, vars(f[obj])))
