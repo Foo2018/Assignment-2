@@ -1,8 +1,10 @@
 import unittest
+import sys
 from extractor import Extractor
-from component import Component
+import io
+from unittest import mock
 
-"""Ten unit tests to test the extractor.py class, primarily the regex extractions"""
+""" 33 unit tests to test the extractor.py class providing 100% coverage """
 
 
 class MainTests(unittest.TestCase):
@@ -11,16 +13,45 @@ class MainTests(unittest.TestCase):
     def setUp(self):
         self.e = Extractor()
 
-    @unittest.skip('This is not functioning yet.')
     def test_unknown_file_entered(self):
         """Returns error if unknown file entered"""
         # Arrange
-        expected = 'File not found'
-        line = "wrongfile.py"
+        saved_stdout = sys.stdout
         # Act
-        actual = self.e.set_file(line)
+        try:
+            out = io.StringIO()
+            sys.stdout = out
+            self.e.set_file("WrongFile.py")
+            output = out.getvalue()
+            # assert
+            self.assertEqual(output, "File or directory not found\n")
+
+        finally:
+            sys.stdout = saved_stdout
+
+    def test_file_entered(self):
+        """ Tests if a correct file is entered that the _data_extraction method is called"""
+        # Arrange
+        patcher = mock.patch.object(self.e, '_data_extraction')
+        patched = patcher.start()
+        # Act
+        self.e.set_file('Mammals.py')
         # Assert
-        self.assertEqual(expected, actual)
+        assert patched.call_count == 1
+        patched.assert_called_with('Mammals.py')
+
+    def test_folder_entered(self):
+        """ Tests if a correct folder is entered that the _data_extraction
+         method is called for each file found within that file tree"""
+        # Arrange
+        patcher = mock.patch.object(self.e, '_data_extraction')
+        patched = patcher.start()
+        # Act
+        self.e.set_file('Folder1')
+        # Assert
+        assert patched.call_count == 4
+        patched.assert_called_with('Folder1\\folder2\\folder3\\folder 4\\folder 5'
+                                   '\\TestFile.py')
 
     def test_class_extraction(self):
         """A class name can be extracted from line of code"""
@@ -83,6 +114,26 @@ class MainTests(unittest.TestCase):
         # Assert
         self.assertEqual([expected], actual)
 
+    def test_extract_defaults_data_types(self):
+        """Tests the _extract_defaults_data_types function returns a dictionary when true"""
+        # Arrange
+        expected = "{'obj': 'Extractor()'}"
+        line = "    self.e = Extractor()"
+        # Act
+        actual = self.e._extract_defaults_data_types(line)
+        # Assert
+        self.assertEqual(str(actual), expected)
+
+    def test_extract_defaults_data_types_no_extraction(self):
+        """Tests the _extract_defaults_data_types function returns a dictionary when true"""
+        # Arrange
+        expected = ''
+        line = ""
+        # Act
+        actual = self.e._extract_defaults_data_types(line)
+        # Assert
+        self.assertEqual(actual, expected)
+
     def test_nil_attribute_extraction(self):
         """A name will not be extracted from line of code where no attribute present"""
         # Arrange
@@ -144,6 +195,16 @@ class MainTests(unittest.TestCase):
         # Assert
         self.assertEqual(expected, actual)
 
+    def test_data_type_string_variation_extraction(self):
+        """An attribute data type can be extracted from line of code"""
+        # Arrange
+        expected = 'str'
+        line = "'"
+        # Act
+        actual = self.e._extract_attribute_data_types(line)
+        # Assert
+        self.assertEqual(expected, actual)
+
     def test_data_type_dictionary_extraction(self):
         """An attribute data type can be extracted from line of code"""
         # Arrange
@@ -189,8 +250,17 @@ class MainTests(unittest.TestCase):
         # Arrange
         line = '@'
         # Assert
-        with self.assertRaises(Exception):
+        saved_stdout = sys.stdout
+        # Act
+        try:
+            out = io.StringIO()
+            sys.stdout = out
             self.e._extract_attribute_data_types(line)
+            output = out.getvalue()
+            # assert
+            self.assertEqual(output, "No data type detected for '@'\n")
+        finally:
+            sys.stdout = saved_stdout
 
     def test_single_dependency_extraction(self):
         """Extracts a single object that class inherits from"""
@@ -202,7 +272,7 @@ class MainTests(unittest.TestCase):
         # Assert
         self.assertEqual(expected, actual)
 
-    def test_multiple_dependency_extraction(self):
+    def test_object_only_dependency_(self):
         """Does not extract 'object' if it is only dependency"""
         # Arrange
         expected = []
@@ -212,7 +282,7 @@ class MainTests(unittest.TestCase):
         # Assert
         self.assertEqual(expected, actual)
 
-    def test_object_dependency_(self):
+    def test_multiple_dependency_extraction(self):
         # Arrange
         expected = ["Test1", "Test2", "Test3"]
         line = 'class Example(Test1, Test2, Test3)'
@@ -221,24 +291,60 @@ class MainTests(unittest.TestCase):
         # Assert
         self.assertEqual(expected, actual)
 
-    @unittest.skip('This is not functioning yet.')
-    def test_no_class_defined_exception(self):
+    def test_no_class_defined_function_exception(self):
         """An error message is raised when an function is defined before its class
         due to poor coding"""
-        # Arrange
-        file = 'errortest.py'
-        # Act
-        self.assertRaises(Exception, self.e._data_extraction, file)
+        # Arrange Act Assert
+        self.assertRaises(Exception, self.e._data_extraction, "errorTestFunctions.py")
 
-    @unittest.skip('This is not functioning yet.')
-    def test_name_attribute_set(self):
+    def test_no_class_defined_attribute_exception(self):
+        """An error message is raised when an attribute is defined before its class
+        due to poor coding"""
+        # Arrange Act Assert
+        self.assertRaises(Exception, self.e._data_extraction, "errorTestAttributes.py")
+
+    def test_class_name(self):
+        expected = True
+        self.e._data_extraction("mammals.py")
+        if self.e.component_dict:
+            actual = True
+        else:
+            actual = False
+        self.assertEqual(actual, expected)
+
+    def test_extractor_class_get_function(self):
+        """Ensure that getter can retrieve a dictionary"""
+        self.e._data_extraction("mammals.py")
+        dictionary = self.e.get_component_dictionary()
+        self.assertTrue(dictionary)
+
+    def test_stub_creation(self):
+        expected = True
+        self.e._data_extraction("example.py")
+        if self.e.component_dict:
+            actual = True
+        else:
+            actual = False
+        self.assertEqual(actual, expected)
+
+    def test_attribute_extraction_when_no_init(self):
+        expected = True
+        self.e._data_extraction("NoInit.py")
+        if self.e.component_dict:
+            actual = True
+        else:
+            actual = False
+        self.assertEqual(actual, expected)
+
+    def test_attribute_declared(self):
         # Arrange
-        c = Component()
-        self.e.set_file('Component.py')
-        expected = 'Component'
+        expected = True
         # Act
-        actual = c.get_name()
-        print("########actual = %s" % actual)
+        self.e._data_extraction("component.py")
+        if self.e.component_dict:
+            actual = True
+        else:
+            actual = False
         # Assert
         self.assertEqual(actual, expected)
 
