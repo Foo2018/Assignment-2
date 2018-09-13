@@ -48,19 +48,13 @@ class Extractor(ExtractionAbstract):
     def _data_extraction(self, file_path):
         with open(file_path, 'r') as source_file:
             for line in source_file:
-                class_name = self._extract_class(line)
-                function_name = self._extract_functions(line)
-                attribute_name = self._extract_attributes(line)
+                class_name = self._extract_class(line)  # **************************
+                function_name = self._extract_functions(line)  # **************************
+                attribute_name = self._extract_attributes(line)  # **************************
                 if class_name:
                     comp = Component()
                     comp.set_name(class_name[0])
-                    parent = self._extract_parents(line)
-                    for item in parent:
-                        parent = self.component_dict.get(item)
-                        if parent is None:
-                            parent = Component()
-                            parent.set_name(item)
-                        comp.get_parents().append(parent)
+                    self.class_parent_name_handling(line, comp)
                     self.component_dict[class_name[0]] = comp
                     attribute_dictionary = {}
                 elif function_name:
@@ -76,13 +70,23 @@ class Extractor(ExtractionAbstract):
                     try:
                         if comp.get_functions() == ['__init__']:
                             attr_name = attribute_name[0]
-                            data_type_dict = self._extract_defaults_data_types(line)
+                            data_type_dict = self._extract_defaults_data_types(line)  # **************************
                             attribute_dictionary[attr_name] = data_type_dict
                             comp.set_attributes(attribute_dictionary)
                     except Exception as err:
                         print(err)
                         raise
 
+    def class_parent_name_handling(self, line, comp):
+        parent = self._extract_parents(line)
+        for item in parent:
+            parent = self.component_dict.get(item)
+            if parent is None:
+                parent = Component()
+                parent.set_name(item)
+            comp.get_parents().append(parent)
+
+    # New class called "Text search"?
     # Performs the regular expressions search and extraction
     @staticmethod
     def _regex_search(regex, data):
@@ -173,7 +177,9 @@ class Extractor(ExtractionAbstract):
     # allows other classes to access the component dictionary
     def get_component_dictionary(self):
         return self.component_dict
-
-
-# prints output code to see if methods functioning ok
-
+if __name__ == "__main__":
+    e = Extractor()
+    e.set_file('mammals.py')
+    f = e.get_component_dictionary()
+    for obj in f:
+        print("Object {0} variables are: {1}".format(obj, vars(f[obj])))
