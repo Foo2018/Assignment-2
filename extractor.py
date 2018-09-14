@@ -55,6 +55,7 @@ class Extractor(ExtractionAbstract):
                     comp = Component()
                     comp.set_name(class_name[0])
                     self.class_parent_name_handling(line, comp)
+
                     self.component_dict[class_name[0]] = comp
                     attribute_dictionary = {}
                 elif function_name:
@@ -81,10 +82,13 @@ class Extractor(ExtractionAbstract):
         parent = self._extract_parents(line)
         for item in parent:
             parent = self.component_dict.get(item)
-            if parent is None:
-                parent = Component()
-                parent.set_name(item)
-            comp.get_parents().append(parent)
+            self.create_new_parent_class_if_nonexistant(parent, item, comp)
+
+    def create_new_parent_class_if_nonexistant(self, parent, item, comp):
+        if parent is None:
+            parent = Component()
+            parent.set_name(item)
+        comp.get_parents().append(parent)
 
     # New class called "Text search"?
     # Performs the regular expressions search and extraction
@@ -177,6 +181,9 @@ class Extractor(ExtractionAbstract):
     # allows other classes to access the component dictionary
     def get_component_dictionary(self):
         return self.component_dict
+
+
+# prints output code to see if methods functioning ok
 if __name__ == "__main__":
     e = Extractor()
     e.set_file('mammals.py')
