@@ -6,5 +6,9 @@
       <auth-required>false</auth-required>
       <introspection-schemas>*:</introspection-schemas>
     </data-source>
+    <data-source name="uml_components [2]" uuid="f0f3f7ea-9a09-4bf5-aa08-34a74975c79c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="SQLITE" exact-version="0.0" />
+      <auth-required>false</auth-required>
+    </data-source>
   </component>
 </project>
