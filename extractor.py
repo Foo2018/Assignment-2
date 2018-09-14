@@ -55,7 +55,6 @@ class Extractor(ExtractionAbstract):
                     comp = Component()
                     comp.set_name(class_name[0])
                     self.class_parent_name_handling(line, comp)
-
                     self.component_dict[class_name[0]] = comp
                     attribute_dictionary = {}
                 elif function_name:
@@ -63,17 +62,12 @@ class Extractor(ExtractionAbstract):
                         function_name = function_name[0]
                         comp.get_functions().append(function_name)
                     except Exception as err:
-                        print('Class has not been declared that contains '
-                              'the "{0}" function'.format(function_name))
                         print(err)
                         raise
                 elif attribute_name:
                     try:
-                        if comp.get_functions() == ['__init__']:
-                            attr_name = attribute_name[0]
-                            data_type_dict = self._extract_defaults_data_types(line)  # **************************
-                            attribute_dictionary[attr_name] = data_type_dict
-                            comp.set_attributes(attribute_dictionary)
+                        self.place_attribute_and_default_value_in_dict(comp, attribute_name, line,
+                                                                  attribute_dictionary)
                     except Exception as err:
                         print(err)
                         raise
@@ -89,6 +83,13 @@ class Extractor(ExtractionAbstract):
             parent = Component()
             parent.set_name(item)
         comp.get_parents().append(parent)
+
+    def place_attribute_and_default_value_in_dict(self,comp,attribute_name,line,attribute_dictionary):
+        if comp.get_functions() == ['__init__']:
+            attr_name = attribute_name[0]
+            data_type_dict = self._extract_defaults_data_types(line)  # **************************
+            attribute_dictionary[attr_name] = data_type_dict
+            comp.set_attributes(attribute_dictionary)
 
     # New class called "Text search"?
     # Performs the regular expressions search and extraction
