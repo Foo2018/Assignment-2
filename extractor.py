@@ -30,6 +30,7 @@ class Extractor(ExtractionAbstract):
         super().__init__()
         self.file = ''
         self.component_dict = {}
+        self.attribute_dictionary = None
         self.component = None
 
     # imports file name and sets it into variable self.file
@@ -54,11 +55,11 @@ class Extractor(ExtractionAbstract):
                 attribute_name = self._extract_attributes(line)  # **************************
                 if class_name:
                     self.component = self._set_class_name(class_name, line)
-                    attribute_dictionary = {}
+                    self.attribute_dictionary = {}
                 elif function_name:
                     self._place_function_in_component_object(function_name)
                 elif attribute_name:
-                    self._place_attribute_and_default_value_in_dict(attribute_name, line, attribute_dictionary)
+                    self._place_attribute_and_default_value_in_dict(attribute_name, line)
 
     def _set_class_name(self, class_name, line):
         component = Component()
@@ -66,16 +67,6 @@ class Extractor(ExtractionAbstract):
         self._class_parent_name_handling(line, component)
         self.component_dict[class_name[0]] = component
         return component
-
-    def _place_function_in_component_object(self, function_name):
-        try:
-            function_name = function_name[0]
-            self.component.get_functions().append(function_name)
-        except Exception as err:
-            print('Class has not been declared that contains '
-                  'the "{0}" function'.format(function_name))
-            print(err)
-            raise
 
     def _class_parent_name_handling(self, line, comp):
         parent = self._extract_parents(line)
@@ -89,18 +80,30 @@ class Extractor(ExtractionAbstract):
             parent.set_name(item)
         comp.get_parents().append(parent)
 
-    def _place_attribute_and_default_value_in_dict(self, attribute_name, line, attribute_dictionary):
+    def _place_function_in_component_object(self, function_name):
+        try:
+            function_name = function_name[0]
+            self.component.get_functions().append(function_name)
+        except Exception as err:
+            print('Class has not been declared that contains '
+                  'the "{0}" function'.format(function_name))
+            print(err)
+            raise
+
+    def _place_attribute_and_default_value_in_dict(self, attribute_name, line):
         try:
             if self.component.get_functions() == ['__init__']:
                 attr_name = attribute_name[0]
-                data_type_dict = self._extract_defaults_data_types(line)  # **************************
-                attribute_dictionary[attr_name] = data_type_dict
-                self.component.set_attributes(attribute_dictionary)
+                data_type_dict = self._extract_defaults_data_types(line)
+                self.attribute_dictionary[attr_name] = data_type_dict
+                self.component.set_attributes(self.attribute_dictionary)
         except Exception as err:
             print(err)
             raise
 
-    # New class called "Text search"?
+    ##################################################################################################################
+
+    # New class called "Text search" with following methods?
     # Performs the regular expressions search and extraction
     @staticmethod
     def _regex_search(regex, data):
