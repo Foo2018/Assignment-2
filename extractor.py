@@ -3,7 +3,8 @@ from extraction_abstract import ExtractionAbstract
 from component import Component
 import os
 import glob
-from textsearch import TextSearch
+from attribute_default_search import AttributeDefaultsSearch
+from line_search import LineSearch
 
 """ 
 This module receives data from files or folders then
@@ -49,11 +50,10 @@ class Extractor(ExtractionAbstract):
     # Takes file name, reads the file, calls extraction methods and
     #  places results into dictionary
     def _data_extraction(self, file_path):
-        search = TextSearch()
         with open(file_path, 'r') as source_file:
-            for line in source_file:
-                is_class_name = search._extract_class(line)  # **************************
-                is_function_name = search._extract_functions(line)  # **************************
+             for line in source_file:
+                is_class_name = self._extract_class(line)  # **************************
+                is_function_name = self._extract_functions(line)  # **************************
                 is_attribute_name = self._extract_attributes(line)  # **************************
                 if is_class_name:
                     self.component = self._set_class_name(is_class_name, line)
@@ -96,7 +96,8 @@ class Extractor(ExtractionAbstract):
         try:
             if self.component.get_functions() == ['__init__']:
                 attr_name = attribute_name[0]
-                data_type_dict = self._extract_defaults_data_types(line)
+                search = AttributeDefaultsSearch()
+                data_type_dict = search.attribute_extraction(line)
                 self.attribute_dictionary[attr_name] = data_type_dict
                 self.component.set_attributes(self.attribute_dictionary)
         except Exception as err:
@@ -129,58 +130,23 @@ class Extractor(ExtractionAbstract):
                 dependency_list.append(stripped_item)
         return dependency_list
 
+    def _extract_class(self, line):
+        regex = '^class\s(\w+)'
+        result = self._regex_search(regex, line)
+        return result
+
+    def _extract_functions(self, line):
+        regex = 'def\s(\w+)'
+        return self._regex_search(regex, line)
+
     def _extract_attributes(self, line):
         regex = '\s{2}self\.(\w+)'
-        # regex2 = '\s{2}self\.\w+(\(\))'
         reg1 = self._regex_search(regex, line)
-        # reg2 = self._regex_search(regex2, line)
-        # if reg2:
-        # return
-        # else:
         return reg1
-
-    # Used to place attribute default values & data types in a dict
-    def _extract_defaults_data_types(self, line):
-        attr_default = self._extract_attribute_defaults(line)
-        if not attr_default:
-            return ''
-        else:
-            attr_type = self._extract_attribute_data_types(attr_default)
-            def_data_types_dict = {attr_type: attr_default}
-            return def_data_types_dict
-
-    # Extracts default value(s) from an attribute and returns them
-    def _extract_attribute_defaults(self, line):
-        regex = '\s{2}self\.\w+\s=\s(.*)'
-        attribute_default = self._regex_search(regex, line)
-        if attribute_default.__len__() != 0:
-            attribute_default = attribute_default[0].replace('"', "")
-        return attribute_default
-
-    # Identifies attribute data type returns it
-    def _extract_attribute_data_types(self, attr_name):
-        regex = '^(.)'
-        regex2 = '^[A-Z].+\)$'
-        extracted_type = self._regex_search(regex, attr_name)
-        data_type = extracted_type[0]
-        extracted_type_2 = self._regex_search(regex2, attr_name)
-        if extracted_type_2:
-            return 'obj'
-        elif data_type.isalpha():
-            return 'str'
-        elif data_type == "'":
-            return 'str'
-        elif data_type == '{':
-            return 'dict'
-        elif data_type == '[':
-            return 'list'
-        elif data_type == '(':
-            return 'tuple'
-        elif data_type.isdigit():
-            return "int"
-        else:
-            print("No data type detected for '{0}'".format(attr_name))
 
     # allows other classes to access the component dictionary
     def get_component_dictionary(self):
         return self.component_dict
+
+
+
