@@ -3,6 +3,7 @@ from extraction_abstract import ExtractionAbstract
 from component import Component
 import os
 import glob
+from textsearch import TextSearch
 
 """ 
 This module receives data from files or folders then
@@ -48,24 +49,25 @@ class Extractor(ExtractionAbstract):
     # Takes file name, reads the file, calls extraction methods and
     #  places results into dictionary
     def _data_extraction(self, file_path):
+        search = TextSearch()
         with open(file_path, 'r') as source_file:
             for line in source_file:
-                class_name = self._extract_class(line)  # **************************
-                function_name = self._extract_functions(line)  # **************************
-                attribute_name = self._extract_attributes(line)  # **************************
-                if class_name:
-                    self.component = self._set_class_name(class_name, line)
-                    self.attribute_dictionary = {}
-                elif function_name:
-                    self._place_function_in_component_object(function_name)
-                elif attribute_name:
-                    self._place_attribute_and_default_value_in_dict(attribute_name, line)
+                is_class_name = search._extract_class(line)  # **************************
+                is_function_name = self._extract_functions(line)  # **************************
+                is_attribute_name = self._extract_attributes(line)  # **************************
+                if is_class_name:
+                    self.component = self._set_class_name(is_class_name, line)
+                elif is_function_name:
+                    self._place_function_name_in_component_object(is_function_name)
+                elif is_attribute_name:
+                    self._place_attribute_name_and_default_value_in_dict(is_attribute_name, line)
 
     def _set_class_name(self, class_name, line):
         component = Component()
         component.set_name(class_name[0])
         self._class_parent_name_handling(line, component)
         self.component_dict[class_name[0]] = component
+        self.attribute_dictionary = {}
         return component
 
     def _class_parent_name_handling(self, line, comp):
@@ -80,7 +82,7 @@ class Extractor(ExtractionAbstract):
             parent.set_name(item)
         comp.get_parents().append(parent)
 
-    def _place_function_in_component_object(self, function_name):
+    def _place_function_name_in_component_object(self, function_name):
         try:
             function_name = function_name[0]
             self.component.get_functions().append(function_name)
@@ -90,7 +92,7 @@ class Extractor(ExtractionAbstract):
             print(err)
             raise
 
-    def _place_attribute_and_default_value_in_dict(self, attribute_name, line):
+    def _place_attribute_name_and_default_value_in_dict(self, attribute_name, line):
         try:
             if self.component.get_functions() == ['__init__']:
                 attr_name = attribute_name[0]
@@ -196,10 +198,4 @@ class Extractor(ExtractionAbstract):
         return self.component_dict
 
 
-# prints output code to see if methods functioning ok
-if __name__ == "__main__":
-    e = Extractor()
-    e.set_file('mammals.py')
-    f = e.get_component_dictionary()
-    for obj in f:
-        print("Object {0} variables are: {1}".format(obj, vars(f[obj])))
+
