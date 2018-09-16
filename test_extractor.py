@@ -92,7 +92,7 @@ class MainTests(unittest.TestCase):
         expected = 'proliferates'
         line = "def proliferates(self):"
         # Act
-        actual = self.e._extract_functions(line)
+        actual = self.t._extract_functions(line)
         # Assert
         self.assertEqual([expected], actual)
 

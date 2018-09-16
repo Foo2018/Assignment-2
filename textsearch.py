@@ -28,3 +28,7 @@ class TextSearch(object):
         regex = '^class\s(\w+)'
         result = self._regex_search(regex, line)
         return result
+
+    def _extract_functions(self, line):
+        regex = 'def\s(\w+)'
+        return self._regex_search(regex, line)

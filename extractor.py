@@ -53,7 +53,7 @@ class Extractor(ExtractionAbstract):
         with open(file_path, 'r') as source_file:
             for line in source_file:
                 is_class_name = search._extract_class(line)  # **************************
-                is_function_name = self._extract_functions(line)  # **************************
+                is_function_name = search._extract_functions(line)  # **************************
                 is_attribute_name = self._extract_attributes(line)  # **************************
                 if is_class_name:
                     self.component = self._set_class_name(is_class_name, line)
@@ -115,10 +115,6 @@ class Extractor(ExtractionAbstract):
 
     # sends regular expressions statement to _regex_search() and returns
     #  class result
-    def _extract_class(self, line):
-        regex = '^class\s(\w+)'
-        result = self._regex_search(regex, line)
-        return result
 
     # sends regular expressions statement to _regex_search() and returns
     # parent(s) result. Handles both Python 2 & Python 3 class declarations
@@ -133,14 +129,6 @@ class Extractor(ExtractionAbstract):
                 dependency_list.append(stripped_item)
         return dependency_list
 
-    # sends regular expressions statement to _regex_search() and returns
-    # function result.
-    def _extract_functions(self, line):
-        regex = 'def\s(\w+)'
-        return self._regex_search(regex, line)
-
-    # sends regular expressions statement to _regex_search() and returns
-    # attribute(s) result.
     def _extract_attributes(self, line):
         regex = '\s{2}self\.(\w+)'
         # regex2 = '\s{2}self\.\w+(\(\))'
@@ -196,6 +184,3 @@ class Extractor(ExtractionAbstract):
     # allows other classes to access the component dictionary
     def get_component_dictionary(self):
         return self.component_dict
-
-
-

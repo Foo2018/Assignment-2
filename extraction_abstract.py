@@ -21,16 +21,8 @@ class ExtractionAbstract(ABC):
     def _regex_search(regex, data):
         pass
 
-    #@abstractmethod
-    #def _extract_class(self, line):
-        #pass
-
     @abstractmethod
     def _extract_parents(self, line):
-        pass
-
-    @abstractmethod
-    def _extract_functions(self, line):
         pass
 
     @abstractmethod
