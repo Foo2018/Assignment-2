@@ -55,12 +55,7 @@ class Extractor(ExtractionAbstract):
                     component = self._set_class_name(class_name, line)
                     attribute_dictionary = {}
                 elif function_name:
-                    try:
-                        function_name = function_name[0]
-                        component.get_functions().append(function_name)
-                    except Exception as err:
-                        print(err)
-                        raise
+                    self._place_function_in_component_object(function_name, component)
                 elif attribute_name:
                     try:
                         self._place_attribute_and_default_value_in_dict(component, attribute_name, line, attribute_dictionary)
@@ -74,6 +69,16 @@ class Extractor(ExtractionAbstract):
         self._class_parent_name_handling(line, component)
         self.component_dict[class_name[0]] = component
         return component
+
+    def _place_function_in_component_object(self, function_name,component):
+        try:
+            function_name = function_name[0]
+            component.get_functions().append(function_name)
+        except Exception as err:
+            print('Class has not been declared that contains '
+              'the "{0}" function'.format(function_name))
+            print(err)
+            raise
 
 
     def _class_parent_name_handling(self, line, comp):
