@@ -30,6 +30,7 @@ class Extractor(ExtractionAbstract):
         super().__init__()
         self.file = ''
         self.component_dict = {}
+        self.component = None
 
     # imports file name and sets it into variable self.file
     def set_file(self, file_path):
@@ -52,16 +53,12 @@ class Extractor(ExtractionAbstract):
                 function_name = self._extract_functions(line)  # **************************
                 attribute_name = self._extract_attributes(line)  # **************************
                 if class_name:
-                    component = self._set_class_name(class_name, line)
+                    self.component = self._set_class_name(class_name, line)
                     attribute_dictionary = {}
                 elif function_name:
-                    self._place_function_in_component_object(function_name, component)
+                    self._place_function_in_component_object(function_name)
                 elif attribute_name:
-                    try:
-                        self._place_attribute_and_default_value_in_dict(component, attribute_name, line, attribute_dictionary)
-                    except Exception as err:
-                        print(err)
-                        raise
+                    self._place_attribute_and_default_value_in_dict(attribute_name, line, attribute_dictionary)
 
     def _set_class_name(self, class_name, line):
         component = Component()
@@ -70,16 +67,15 @@ class Extractor(ExtractionAbstract):
         self.component_dict[class_name[0]] = component
         return component
 
-    def _place_function_in_component_object(self, function_name,component):
+    def _place_function_in_component_object(self, function_name):
         try:
             function_name = function_name[0]
-            component.get_functions().append(function_name)
+            self.component.get_functions().append(function_name)
         except Exception as err:
             print('Class has not been declared that contains '
-              'the "{0}" function'.format(function_name))
+                  'the "{0}" function'.format(function_name))
             print(err)
             raise
-
 
     def _class_parent_name_handling(self, line, comp):
         parent = self._extract_parents(line)
@@ -93,12 +89,16 @@ class Extractor(ExtractionAbstract):
             parent.set_name(item)
         comp.get_parents().append(parent)
 
-    def _place_attribute_and_default_value_in_dict(self, comp, attribute_name, line, attribute_dictionary):
-
-        attr_name = attribute_name[0]
-        data_type_dict = self._extract_defaults_data_types(line)  # **************************
-        attribute_dictionary[attr_name] = data_type_dict
-        comp.set_attributes(attribute_dictionary)
+    def _place_attribute_and_default_value_in_dict(self, attribute_name, line, attribute_dictionary):
+        try:
+            if self.component.get_functions() == ['__init__']:
+                attr_name = attribute_name[0]
+                data_type_dict = self._extract_defaults_data_types(line)  # **************************
+                attribute_dictionary[attr_name] = data_type_dict
+                self.component.set_attributes(attribute_dictionary)
+        except Exception as err:
+            print(err)
+            raise
 
     # New class called "Text search"?
     # Performs the regular expressions search and extraction
