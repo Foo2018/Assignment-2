@@ -51,8 +51,9 @@ class Extractor(ExtractionAbstract):
     #  places results into dictionary
     def _data_extraction(self, file_path):
         with open(file_path, 'r') as source_file:
-             for line in source_file:
-                is_class_name = self._extract_class(line)  # **************************
+            search = LineSearch()
+            for line in source_file:
+                is_class_name = search._extract_class(line)  # **************************
                 is_function_name = self._extract_functions(line)  # **************************
                 is_attribute_name = self._extract_attributes(line)  # **************************
                 if is_class_name:
@@ -129,11 +130,6 @@ class Extractor(ExtractionAbstract):
                 stripped_item = item.strip()
                 dependency_list.append(stripped_item)
         return dependency_list
-
-    def _extract_class(self, line):
-        regex = '^class\s(\w+)'
-        result = self._regex_search(regex, line)
-        return result
 
     def _extract_functions(self, line):
         regex = 'def\s(\w+)'

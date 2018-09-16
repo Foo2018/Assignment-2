@@ -36,7 +36,7 @@ class Herbivore(Mammal, Carnivore):
         self.nose = ""
         self.genus = {}
         self.e = Extractor()
-        self.tuple = ()
+        self.spots = ()
 
     def proliferates(self):
         print("plant eater")
