@@ -1,6 +1,7 @@
 import unittest
 import sys
 from extractor import Extractor
+from textsearch import TextSearch
 import io
 from unittest import mock
 
@@ -12,6 +13,7 @@ class MainTests(unittest.TestCase):
 
     def setUp(self):
         self.e = Extractor()
+        self.t = TextSearch()
 
     def test_unknown_file_entered(self):
         """Returns error if unknown file entered"""
@@ -59,7 +61,7 @@ class MainTests(unittest.TestCase):
         expected = 'Marsupial'
         line = "class Marsupial(Mammal):"
         # Act
-        actual = self.e._extract_class(line)
+        actual = self.t._extract_class(line)
         # Assert
         self.assertEqual([expected], actual)
 
@@ -70,7 +72,7 @@ class MainTests(unittest.TestCase):
         expected = 'Marsupial'
         line = "class Marsupial:"
         # Act
-        actual = self.e._extract_class(line)
+        actual = self.t._extract_class(line)
         # Assert
         self.assertEqual([expected], actual)
 
@@ -80,7 +82,7 @@ class MainTests(unittest.TestCase):
         expected = []
         line = "class(Mammal):"
         # Act
-        actual = self.e._extract_class(line)
+        actual = self.t._extract_class(line)
         # Assert
         self.assertEqual(expected, actual)
 
@@ -100,7 +102,7 @@ class MainTests(unittest.TestCase):
         expected = []
         line = "    teeth = 'Sharp'"
         # Act
-        actual = self.e._extract_class(line)
+        actual = self.t._extract_class(line)
         # Assert
         self.assertEqual(expected, actual)
 
@@ -140,7 +142,7 @@ class MainTests(unittest.TestCase):
         expected = []
         line = "    self.= 'Sharp'"
         # Act
-        actual = self.e._extract_class(line)
+        actual = self.t._extract_class(line)
         # Assert
         self.assertEqual(expected, actual)
 
