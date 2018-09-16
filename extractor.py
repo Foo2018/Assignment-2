@@ -52,44 +52,48 @@ class Extractor(ExtractionAbstract):
                 function_name = self._extract_functions(line)  # **************************
                 attribute_name = self._extract_attributes(line)  # **************************
                 if class_name:
-                    comp = Component()
-                    comp.set_name(class_name[0])
-                    self.class_parent_name_handling(line, comp)
-                    self.component_dict[class_name[0]] = comp
+                    component = self._set_class_name(class_name, line)
                     attribute_dictionary = {}
                 elif function_name:
                     try:
                         function_name = function_name[0]
-                        comp.get_functions().append(function_name)
+                        component.get_functions().append(function_name)
                     except Exception as err:
                         print(err)
                         raise
                 elif attribute_name:
                     try:
-                        self.place_attribute_and_default_value_in_dict(comp, attribute_name, line,
-                                                                  attribute_dictionary)
+                        self._place_attribute_and_default_value_in_dict(component, attribute_name, line, attribute_dictionary)
                     except Exception as err:
                         print(err)
                         raise
 
-    def class_parent_name_handling(self, line, comp):
+    def _set_class_name(self, class_name, line):
+        component = Component()
+        component.set_name(class_name[0])
+        self._class_parent_name_handling(line, component)
+        self.component_dict[class_name[0]] = component
+        return component
+
+
+    def _class_parent_name_handling(self, line, comp):
         parent = self._extract_parents(line)
         for item in parent:
             parent = self.component_dict.get(item)
-            self.create_new_parent_class_if_nonexistant(parent, item, comp)
+            self._create_new_parent_class_if_nonexistant(parent, item, comp)
 
-    def create_new_parent_class_if_nonexistant(self, parent, item, comp):
+    def _create_new_parent_class_if_nonexistant(self, parent, item, comp):
         if parent is None:
             parent = Component()
             parent.set_name(item)
         comp.get_parents().append(parent)
 
-    def place_attribute_and_default_value_in_dict(self,comp,attribute_name,line,attribute_dictionary):
-        if comp.get_functions() == ['__init__']:
-            attr_name = attribute_name[0]
-            data_type_dict = self._extract_defaults_data_types(line)  # **************************
-            attribute_dictionary[attr_name] = data_type_dict
-            comp.set_attributes(attribute_dictionary)
+    def _place_attribute_and_default_value_in_dict(self, comp, attribute_name, line, attribute_dictionary):
+
+        attr_name = attribute_name[0]
+        data_type_dict = self._extract_defaults_data_types(line)  # **************************
+        attribute_dictionary[attr_name] = data_type_dict
+        comp.set_attributes(attribute_dictionary)
 
     # New class called "Text search"?
     # Performs the regular expressions search and extraction
