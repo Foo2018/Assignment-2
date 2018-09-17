@@ -94,8 +94,7 @@ class Extractor(ExtractionAbstract):
             if self.component.get_functions() == ['__init__']:
                 attr_name = attribute_name[0]
                 search = AttributeDefaultsSearch()
-                data_type_dict = search.attribute_extraction(line)
-                self.attribute_dictionary[attr_name] = data_type_dict
+                self.attribute_dictionary[attr_name] = search.attribute_extraction(line)
                 self.component.set_attributes(self.attribute_dictionary)
         except Exception as err:
             print(err)
