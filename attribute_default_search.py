@@ -40,14 +40,15 @@ class AttributeDefaultsSearch(object):
         extracted_type_2 = self._regex_search(regex2, attr_name)
         if extracted_type_2:
             return 'obj'
-        elif data_type.isalpha():
+        if data_type.isalpha()or "'" or '"':
             return 'str'
-        elif data_type.isdigit():
+        if data_type == '{':
+            return 'dict'
+        if data_type == '[':
+            return 'list'
+        if data_type == '(':
+            return 'tuple'
+        if data_type.isdigit():
             return "int"
-        elif data_type:
-            character = {"'": "str", '{': 'dict', '[': 'list', '(': 'tuple'}
-            return character[data_type][1]
-
         else:
             print("No data type detected for '{0}'".format(attr_name))
-
