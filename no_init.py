@@ -1,11 +1,16 @@
 """ Test Python file for file extractor - NO __INIT___ METHODS"""
+
+
 class Alpha(object):
     """The A class."""
+
     def get_nameA(self, name):
+        self.name = ""
         "Returns the name of the instance."
         return name
 
-#instance_of_a = A('sample_instance')
+
+# instance_of_a = A('sample_instance')
 
 class Beta(Alpha):
     """This is the B class.
