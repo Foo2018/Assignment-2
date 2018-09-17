@@ -361,7 +361,5 @@ class CommandLine(Cmd):
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=2)
     command_line = CommandLine()
     command_line.cmdloop()
