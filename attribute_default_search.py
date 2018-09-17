@@ -3,11 +3,10 @@ import re
 
 class AttributeDefaultsSearch(object):
     def __init__(self):
-        self.attribute_dict = None
+        pass
 
     def attribute_extraction(self, line):
-        self._extract_defaults_data_types(line)
-        self.get_attribute_dictionary()
+        return self._extract_defaults_and_data_types(line)
 
     @staticmethod
     def _regex_search(regex, data):
@@ -15,14 +14,14 @@ class AttributeDefaultsSearch(object):
         regex_result = r.findall(data)
         return regex_result
 
-    def _extract_defaults_data_types(self, line):
+    def _extract_defaults_and_data_types(self, line):
         attr_default = self._extract_attribute_defaults(line)
         if not attr_default:
             return ''
         else:
             attr_type = self._extract_attribute_data_types(attr_default)
-            self.attribute_dict = {attr_type: attr_default}
-
+            def_data_types_dict = {attr_type: attr_default}
+            return def_data_types_dict
 
     # Extracts default value(s) from an attribute and returns them
     def _extract_attribute_defaults(self, line):
@@ -56,5 +55,3 @@ class AttributeDefaultsSearch(object):
         else:
             print("No data type detected for '{0}'".format(attr_name))
 
-    def get_attribute_dictionary(self):
-        return self.attribute_dict
