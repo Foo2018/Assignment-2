@@ -1,10 +1,10 @@
-import re
 from extraction_abstract import ExtractionAbstract
 from component import Component
 import os
 import glob
 from attribute_default_search import AttributeDefaultsSearch
-from line_search import LineSearch
+from class_parameter_search import ClassParameterSearch
+from parent_extraction import ParentExtraction
 
 """ 
 This module receives data from files or folders then
@@ -35,7 +35,6 @@ class Extractor(ExtractionAbstract):
         self.attribute_dictionary = None
         self.component = None
 
-    # imports file name and sets it into variable self.file
     def set_file(self, file_path):
         file_string = file_path
         if os.path.isfile(file_string):
@@ -47,15 +46,11 @@ class Extractor(ExtractionAbstract):
         else:
             print("File or directory not found")
 
-    # Takes file name, reads the file, calls extraction methods and
-    #  places results into dictionary
     def _data_extraction(self, file_path):
         with open(file_path, 'r') as source_file:
-            search = LineSearch()
+            search = ClassParameterSearch()
             for line in source_file:
-                is_class_name = search._extract_class(line)  # **************************
-                is_function_name = self._extract_functions(line)  # **************************
-                is_attribute_name = self._extract_attributes(line)  # **************************
+                is_attribute_name, is_class_name, is_function_name = search.class_parameter_extractions(line)
                 if is_class_name:
                     self.component = self._set_class_name(is_class_name, line)
                 elif is_function_name:
@@ -72,7 +67,8 @@ class Extractor(ExtractionAbstract):
         return component
 
     def _class_parent_name_handling(self, line, comp):
-        parent = self._extract_parents(line)
+        parent_search = ParentExtraction()
+        parent = parent_search.extract_parent_classes(line)
         for item in parent:
             parent = self.component_dict.get(item)
             self._create_new_parent_class_if_nonexistant(parent, item, comp)
@@ -105,44 +101,5 @@ class Extractor(ExtractionAbstract):
             print(err)
             raise
 
-    ##################################################################################################################
-
-    # New class called "Text search" with following methods?
-    # Performs the regular expressions search and extraction
-    @staticmethod
-    def _regex_search(regex, data):
-        r = re.compile(regex)
-        regex_result = r.findall(data)
-        return regex_result
-
-    # sends regular expressions statement to _regex_search() and returns
-    #  class result
-
-    # sends regular expressions statement to _regex_search() and returns
-    # parent(s) result. Handles both Python 2 & Python 3 class declarations
-    def _extract_parents(self, line):
-        dependency_list = []
-        regex = '^class\s\w+\((.*)\)'
-        dependency_names = self._regex_search(regex, line)[0]
-        regex_list = (re.split(r',', dependency_names))
-        for item in regex_list:
-            if item != 'object':
-                stripped_item = item.strip()
-                dependency_list.append(stripped_item)
-        return dependency_list
-
-    def _extract_functions(self, line):
-        regex = 'def\s(\w+)'
-        return self._regex_search(regex, line)
-
-    def _extract_attributes(self, line):
-        regex = '\s{2}self\.(\w+)'
-        reg1 = self._regex_search(regex, line)
-        return reg1
-
-    # allows other classes to access the component dictionary
     def get_component_dictionary(self):
         return self.component_dict
-
-
-
