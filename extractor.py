@@ -102,3 +102,10 @@ class Extractor(ExtractionAbstract):
 
     def get_component_dictionary(self):
         return self.component_dict
+
+if __name__ == "__main__":
+    e = Extractor()
+    e.set_file('mammals.py')
+    f = e.get_component_dictionary()
+    for obj in f:
+        print("Object {0} variables are: {1}".format(obj, vars(f[obj])))

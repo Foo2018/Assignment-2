@@ -42,16 +42,12 @@ class AttributeDefaultsSearch(object):
             return 'obj'
         elif data_type.isalpha():
             return 'str'
-        elif data_type == "'":
-            return 'str'
-        elif data_type == '{':
-            return 'dict'
-        elif data_type == '[':
-            return 'list'
-        elif data_type == '(':
-            return 'tuple'
         elif data_type.isdigit():
             return "int"
+        elif data_type:
+            character = {"'": "str", '{': 'dict', '[': 'list', '(': 'tuple'}
+            return character[data_type][1]
+
         else:
             print("No data type detected for '{0}'".format(attr_name))
 
