@@ -34,9 +34,11 @@ class Herbivore(Mammal, Carnivore):
     def __init__(self):
         self.teeth = "srp"
         self.nose = ""
+        self.eyes = 'two'
         self.genus = {}
         self.e = Extractor()
         self.spots = ()
+        self.claws = []
 
     def proliferates(self):
         print("plant eater")
