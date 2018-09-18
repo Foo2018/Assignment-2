@@ -1,4 +1,4 @@
-import re
+from search_abstract import SearchAbstract
 
 """
 This module searches the initial line data and decides if there are classnames, 
@@ -6,7 +6,7 @@ This module searches the initial line data and decides if there are classnames,
 """
 
 
-class ClassParameterSearch(object):
+class ClassParameterSearch(SearchAbstract):
     def __init__(self):
         self.parameter_list = []
 
@@ -15,12 +15,6 @@ class ClassParameterSearch(object):
         is_function_name = self._extract_functions(line)
         is_attribute_name = self._extract_attributes(line)
         return is_attribute_name, is_class_name, is_function_name
-
-    @staticmethod
-    def _regex_search(regex, data):
-        r = re.compile(regex)
-        regex_result = r.findall(data)
-        return regex_result
 
     def _extract_class(self, line):
         regex = '^class\s(\w+)'
