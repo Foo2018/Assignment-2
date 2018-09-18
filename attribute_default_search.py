@@ -35,7 +35,9 @@ class AttributeDefaultsSearch(SearchAbstract):
         extracted_type_2 = self._regex_search(regex2, attr_name)
         if extracted_type_2:
             return 'obj'
-        if data_type.isalpha()or "'" or '"':
+        if data_type.isalpha():
+            return 'str'
+        if data_type == "'":
             return 'str'
         if data_type == '{':
             return 'dict'
