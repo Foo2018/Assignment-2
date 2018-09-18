@@ -64,7 +64,7 @@ Large Class
    * `_extract_attribute_defaults()`
    * `_extract_attribute_data_types()`
 
-As can be seen the class, as well as being large, does not have single-responsibility. There are two clear purposes to the class. In particular the search aspect would likely be enlarged as the program becomes more sophisticated, thus adding to the class size, complexity and chance of breaking the collation side. Extracting a class from the existing Extractor class will increase its robustness.Therefore using the Extract Class refactoring method I will be extracting at least one class form the original based on the text search methods.
+As can be seen the class, as well as being large, does not have single-responsibility. There are two clear purposes to the class. In particular the search aspect would likely be enlarged as the program becomes more sophisticated, thus adding to the class size, complexity and chance of breaking the collation side. Extracting a class from the existing Extractor class will increase its robustness. Therefore using the Extract Class refactoring method I will be extracting at least one class from the original based on the text search methods.
 
 ### Result
 Upon examining the extraction methods that I wished to put into another class I decided that there were actually three different viable classes that could be made, each with a single search focus. These were:
