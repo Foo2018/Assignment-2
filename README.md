@@ -3,7 +3,7 @@
 ### Code Smell Name: 
 Long Method
 ### Location:
-Extractor.py > Class name – Extractor() > Method name - _data_extraction() > Lines 48 - 84 
+`extractor.py` > Class name – Extractor() > Method name - `_data_extraction()` > Lines 48 - 84 
 ### Reasons: 
 * Longer than the recommended 10 lines – It has 36 lines
 * Code grew in length as more and more search features were added. 
@@ -34,7 +34,7 @@ In order to reduce the size of the method I will be using;
 ### Name:
 Large Class
 ### Location:
-Extractor.py > Class name – Extractor() > Lines 17 - 175 
+`extractor.py` > Class name – Extractor() > Lines 17 - 175 
 ### Reasons: 
 * The Extractor class is currently a lengthy class with 11 methods 
 * The number of methods will increase once the method extraction for bad smell one is completed
@@ -96,13 +96,22 @@ I have created a super class using a Python abstract class. It is called **Searc
 ## 4.	Bad Smell Four
 ### Name:
 Switch Statements
-### Location: Extractor.py > Class name – Extractor() > Method name - _data_extraction() > Lines 48 - 84 
+### Location:
+`attribute_default_search.py` > Class name – AttributeDefaultsSearch() > Method name - `_extract_attribute_data_types()` > Lines 150 -171
 ### Reasons: 
-
+* The `_extract_attribute_data_types()` method contains a long 'elif' statement. This falls into the 'Switch Statements'smell
+* There are no switch statements in Python but long 'elifs' are the equivalent and considered to not be good OOP practice
+* Switch (elifs) can introduce complications and can grow unwieldy over time, becoming hard to be maintained.
+* This particular 'elif' does has the potential to grow very large as the program becomes more sophisticated and requires more items to be searched for
 ### Refactoring strategies/ approaches
+The approaches that were experimented with were:
+* Replacing conditional with polymorphism
+* Replace type code with Strategy
+* Replace nested conditional with guard clauses
+ 
 ### Result
-
-
+I considered and tried a number of approaches to reduce this 'elif' statement. I looked at ways to introduce polymorphism but I felt that the search data, being mostly singular, non-alphabetic characters did not lend themselves to my understanding of this method which uses classes. I tried a number of ways but could not get it to work. Using a strategy pattern is another way of dealing with conditionals but I had similar issues to polymorphism. I feel that these two approaches were probably overkill for this particular issue. Another 'pythonic' approach was to place the input data in a dictionary as keys and have the return data as values. This worked very well for most situations, however two comparisons in the 'elif' use the Python string methods isalpha() and isdigit() and these would not translate to being used as a dictionary key. I tried a hybrid of using the isalpha() and isdigit() still within an elif statement combined with the remaining comparisons within a dictionary. I was not happy with the results.
+Lastly I tried using 'guard clauses'. This worked fine and has simplified the look of the statement overall and introduces a flat structure. This elif clause performs relatively simple actions but does have the potential to become unwieldy so can benefit from some refactoring as I have done.   
 
 
 
