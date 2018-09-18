@@ -1,18 +1,13 @@
-import re
+
+from search_abstract import SearchAbstract
 
 
-class AttributeDefaultsSearch(object):
+class AttributeDefaultsSearch(SearchAbstract):
     def __init__(self):
         pass
 
     def attribute_extraction(self, line):
         return self._extract_defaults_and_data_types(line)
-
-    @staticmethod
-    def _regex_search(regex, data):
-        r = re.compile(regex)
-        regex_result = r.findall(data)
-        return regex_result
 
     def _extract_defaults_and_data_types(self, line):
         attr_default = self._extract_attribute_defaults(line)

@@ -1,20 +1,15 @@
 from abc import ABC
+import re
 from abc import abstractmethod
 
 
-class ExtractionAbstract(ABC):
+class SearchAbstract(ABC):
 
     def __init__(self):
-        self.id = None
-
-    @abstractmethod
-    def set_file(self, file_path):
         pass
 
-    @abstractmethod
-    def _data_extraction(self, file_path):
-        pass
-
-    @abstractmethod
-    def get_component_dictionary(self):
-        pass
+    @staticmethod
+    def _regex_search(regex, data):
+        r = re.compile(regex)
+        regex_result = r.findall(data)
+        return regex_result
