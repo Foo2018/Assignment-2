@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6812df83-e0a8-425e-a90e-58732bc15cd5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attribute_default_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/attribute_default_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_parameter_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_parameter_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/extractor_py.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/extractor_py.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htmlcov/status.json" beforeDir="false" afterPath="$PROJECT_DIR$/htmlcov/status.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/class-diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/class-diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search_abstract.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_abstract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uml_components.db" beforeDir="false" afterPath="$PROJECT_DIR$/uml_components.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,18 +29,18 @@
     <SUITE FILE_PATH="coverage/umlifyv2$component_viewer.coverage" NAME="component_viewer Coverage Results" MODIFIED="1534853774040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$Doctests_in_umlify_component_viewer.coverage" NAME="Doctests in umlify_component_viewer Coverage Results" MODIFIED="1534945941634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Doctests_in_commandline.coverage" NAME="Doctests in commandline Coverage Results" MODIFIED="1537178463679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Assignment_2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1537180627845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1537230684577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_extractor_MainTests_test_master_error.coverage" NAME="Unittests for test_extractor.MainTests.test_master_error Coverage Results" MODIFIED="1537152930688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$mammals.coverage" NAME="mammals Coverage Results" MODIFIED="1534904676068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$mammals.coverage" NAME="mammals Coverage Results" MODIFIED="1537098180232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_attribute_default_search_MainTests_test_extract_defaults_data_types.coverage" NAME="Unittests for test_attribute_default_search.MainTests.test_extract_defaults_data_types Coverage Results" MODIFIED="1537149995219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_attribute_default_search_MainTests_test_data_type_object_extraction.coverage" NAME="Unittests for test_attribute_default_search.MainTests.test_data_type_object_extraction Coverage Results" MODIFIED="1537149868585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$textsearch.coverage" NAME="textsearch Coverage Results" MODIFIED="1537088374229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Assignment_2$extractor.coverage" NAME="extractor Coverage Results" MODIFIED="1537223790264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_2$extractor.coverage" NAME="extractor Coverage Results" MODIFIED="1537229926913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1536452546177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$Doctests_in_doctest_tests.coverage" NAME="Doctests in doctest tests Coverage Results" MODIFIED="1534762279052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_extractor_MainTests_test_attribute_extraction_when_no_init.coverage" NAME="Unittests for test_extractor.MainTests.test_attribute_extraction_when_no_init Coverage Results" MODIFIED="1537152182525" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Assignment_2$Unittests_in_test_extractor_py.coverage" NAME="Unittests in test_extractor.py Coverage Results" MODIFIED="1537223621190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_2$Unittests_in_test_extractor_py.coverage" NAME="Unittests in test_extractor.py Coverage Results" MODIFIED="1537230676093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$extraction_abstract.coverage" NAME="extraction_abstract Coverage Results" MODIFIED="1534908599750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$extractor.coverage" NAME="extractor Coverage Results" MODIFIED="1534971660365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$Doctests_in_component.coverage" NAME="Doctests in component Coverage Results" MODIFIED="1534771283679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -117,36 +125,36 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="pstat" value="1" />
-          <entry key="py" value="45" />
+          <entry key="py" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Profiler Session" value="1" />
-          <entry key="Python" value="45" />
+          <entry key="Python" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="101" />
-          <entry key="py" value="6749" />
+          <entry key="dummy" value="113" />
+          <entry key="py" value="7108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="101" />
-          <entry key="Python" value="6749" />
+          <entry key="PLAIN_TEXT" value="113" />
+          <entry key="Python" value="7108" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-249">
-              <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
+            <state relative-caret-position="1577">
+              <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -155,51 +163,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search_abstract.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Folder1/Component.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="909">
-              <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+            <state relative-caret-position="490">
+              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extraction_abstract.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attribute_default_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mammals.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class_parameter_search.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+            <state relative-caret-position="814">
+              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -207,8 +200,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parent_extraction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="198">
+              <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/class_parameter_search.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pyreverse_component_viewer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mammals_attribute_error.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mammals.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="895">
+              <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -231,7 +266,6 @@
       <find>type</find>
       <find>output_file_type</find>
       <find>jpg</find>
-      <find>print</find>
       <find>s.</find>
       <find>cv</find>
       <find>attributes</find>
@@ -246,6 +280,7 @@
       <find>_extract_class</find>
       <find>cmdloop</find>
       <find>import imp</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -271,21 +306,23 @@
         <option value="$PROJECT_DIR$/attributedefaultsearch.py" />
         <option value="$PROJECT_DIR$/testTupleNumbersObjects.py" />
         <option value="$PROJECT_DIR$/line_search.py" />
-        <option value="$PROJECT_DIR$/extraction_abstract.py" />
         <option value="$PROJECT_DIR$/component.py" />
-        <option value="$PROJECT_DIR$/parent_extraction.py" />
         <option value="$PROJECT_DIR$/test_attribute_default_search.py" />
         <option value="$PROJECT_DIR$/mammals.py" />
         <option value="$PROJECT_DIR$/example.py" />
         <option value="$PROJECT_DIR$/NoInit.py" />
-        <option value="$PROJECT_DIR$/mammals_attribute_error.py" />
         <option value="$PROJECT_DIR$/commandline.py" />
         <option value="$USER_HOME$/PycharmProjects/umlifyV3/extractor.py" />
-        <option value="$PROJECT_DIR$/class_parameter_search.py" />
-        <option value="$PROJECT_DIR$/test_extractor.py" />
         <option value="$PROJECT_DIR$/database.py" />
+        <option value="$PROJECT_DIR$/mammals_attribute_error.py" />
+        <option value="$PROJECT_DIR$/test_extractor.py" />
+        <option value="$PROJECT_DIR$/AbstractSearch.py" />
+        <option value="$PROJECT_DIR$/extraction_abstract.py" />
+        <option value="$PROJECT_DIR$/parent_extraction.py" />
         <option value="$PROJECT_DIR$/extractor.py" />
         <option value="$PROJECT_DIR$/attribute_default_search.py" />
+        <option value="$PROJECT_DIR$/search_abstract.py" />
+        <option value="$PROJECT_DIR$/class_parameter_search.py" />
       </list>
     </option>
   </component>
@@ -312,6 +349,11 @@
             <path>
               <item name="Assignment-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Assignment-2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment-2" type="462c0819:PsiDirectoryNode" />
+              <item name="Folder1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -351,7 +393,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.extractor">
+  <component name="RunManager" selected="Python.commandline">
     <configuration name="commandline" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="umlifyv2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -454,9 +496,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.extractor" />
-        <item itemvalue="Python tests.Unittests in test_extractor.py" />
         <item itemvalue="Python.commandline" />
+        <item itemvalue="Python tests.Unittests in test_extractor.py" />
+        <item itemvalue="Python.extractor" />
         <item itemvalue="Python tests.Doctests in commandline" />
         <item itemvalue="Python tests.Unittests for test_extractor.MainTests.test_dict" />
       </list>
@@ -476,40 +518,48 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 18h 01m 18s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 10h 59m 02s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 18h 01m 40s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 00m 54s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 19h 06m 06s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 03m 25s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 21h 59m 51s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 05m 33s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Doctests_in_commandline - 2018.09.17 at 22h 00m 06s.xml">
-      <configuration name="Doctests in commandline" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Doctests_in_commandline - 2018.09.17 at 22h 01m 04s.xml">
-      <configuration name="Doctests in commandline" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 22h 04m 22s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 10m 55s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 22h 10m 49s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 11m 29s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.17 at 22h 12m 56s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 11h 19m 13s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 10h 33m 43s.xml">
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 12h 22m 03s.xml">
+      <configuration name="Unittests in test_extractor.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 12h 26m 17s.xml">
+      <configuration name="Unittests in test_extractor.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.18 at 12h 31m 16s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="2728" y="-8" width="1936" height="1135" extended-state="7" />
-    <editor active="true" />
+    <frame x="2728" y="-8" width="1936" height="1135" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.108208954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -520,13 +570,13 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3996004" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32967034" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32967034" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32924962" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32924962" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32924962" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32867134" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32867134" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32924962" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -633,6 +683,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1909">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -712,13 +765,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_attribute_default_search.py" />
-    <entry file="file://$PROJECT_DIR$/pyreverse_component_viewer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doctest tests.py" />
     <entry file="file://$USER_HOME$/PycharmProjects/ClassExamples/Session 4.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -734,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mammals_attribute_error.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commandline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7898">
@@ -752,32 +791,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3344">
           <caret line="152" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extraction_abstract.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mammals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="909">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/umlify_component_viewer.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -786,33 +807,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parent_extraction.py">
+    <entry file="file://$PROJECT_DIR$/Folder1/Component.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mammals_attribute_error.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="154">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class_parameter_search.py">
+    <entry file="file://$PROJECT_DIR$/mammals.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+        <state relative-caret-position="895">
+          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attribute_default_search.py">
+    <entry file="file://$PROJECT_DIR$/pyreverse_component_viewer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        <state>
+          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extraction_abstract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" column="12" lean-forward="true" selection-end-line="19" selection-end-column="12" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249">
-          <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
+        <state relative-caret-position="1577">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parent_extraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search_abstract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attribute_default_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class_parameter_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
