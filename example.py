@@ -6,7 +6,7 @@ class Aframe(House):
         self.car = "Ford"
 
     def get_name(self):
-        "Returns the name of the instance."
+        """Returns the name of the instance."""
         return self.name
 
 
@@ -24,5 +24,5 @@ class Bungalow(Aframe):
         pass
 
     def get_name(self):
-        "Overrides version from A"
+        """Overrides version from A"""
         return 'B(' + self.house + ')'

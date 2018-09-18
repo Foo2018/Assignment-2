@@ -29,4 +29,3 @@ class ClassParameterSearch(SearchAbstract):
         regex = '\s{2}self\.(\w+)'
         reg1 = self._regex_search(regex, line)
         return reg1
-

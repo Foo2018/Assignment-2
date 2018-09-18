@@ -1,4 +1,3 @@
-
 from search_abstract import SearchAbstract
 
 

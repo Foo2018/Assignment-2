@@ -102,4 +102,3 @@ class Extractor(ExtractionAbstract):
 
     def get_component_dictionary(self):
         return self.component_dict
-

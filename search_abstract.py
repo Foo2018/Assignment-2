@@ -1,6 +1,5 @@
 from abc import ABC
 import re
-from abc import abstractmethod
 
 
 class SearchAbstract(ABC):
