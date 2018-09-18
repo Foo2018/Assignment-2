@@ -27,7 +27,7 @@ In order to reduce the size of the method I will be using;
   * Lines 76 - 84 - `_place_attribute_name_and_default_value_in_dictionary`
 * As a result of refactoring the _data_extraction method within the Extractor class I was able to reduce the size of that method from 36 to 11 lines. A considerable reduction and it is now a very easily maintainable method. 
 * By extracting chunks of code into their own methods and then giving those methods very descriptive names and renaming existing variables I not only removed explanatory commenting (A bad smell in its own right) but I made the code much more readable. For example:
-`elif is_attribute_name: self._place_attribute_name_and_default_value_in_dict(is_attribute_name, line)` can be read directly from the code as "if is attribute name place attribute name and default value in dictionary". This is much clearer and easier to understand. Again this aids maintainability and understanding of the code.
+`elif is_attribute_name: self._place_attribute_name_and_default_value_in_dictionary(is_attribute_name, line)` can be read directly from the code as "if is attribute name place attribute name and default value in dictionary". This is much clearer and easier to understand. Again this aids maintainability and understanding of the code.
 
 
 ## 2.	Bad Smell Two
