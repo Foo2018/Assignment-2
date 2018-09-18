@@ -56,7 +56,7 @@ class Extractor(ExtractionAbstract):
                 elif is_function_name:
                     self._place_function_name_in_component_object(is_function_name)
                 elif is_attribute_name:
-                    self._place_attribute_name_and_default_value_in_dict(is_attribute_name, line)
+                    self._place_attribute_name_and_default_value_in_dictionary(is_attribute_name, line)
 
     def _set_class_name(self, class_name, line):
         component = Component()
@@ -89,7 +89,7 @@ class Extractor(ExtractionAbstract):
             print(err)
             raise
 
-    def _place_attribute_name_and_default_value_in_dict(self, attribute_name, line):
+    def _place_attribute_name_and_default_value_in_dictionary(self, attribute_name, line):
         try:
             if self.component.get_functions() == ['__init__']:
                 attr_name = attribute_name[0]
