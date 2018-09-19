@@ -19,6 +19,7 @@ class Marsupial(Mammal):
 class Eutherian(Mammal):
     def proliferates(self):
         print("placenta")
+        self.eyeballs = 3
 
 
 class Carnivore(Mammal):
