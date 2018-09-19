@@ -9,6 +9,7 @@ This class receives a line containing a class name and extracts parent classes, 
 
 class ParentExtraction(SearchAbstract):
     def __init__(self):
+        super().__init__()
         self.dependency_list = []
 
     def extract_parent_classes(self, line):
