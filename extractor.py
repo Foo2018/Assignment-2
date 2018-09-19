@@ -7,8 +7,8 @@ from class_parameter_search import ClassParameterSearch
 from parent_extraction import ParentExtraction
 
 """ 
-This module receives data from files or folders then
-extracts class names, dependencies, function names and attribute details.
+This module receives data from files or folders then calls other classes to 
+extract class names, dependencies, function names and attribute details.
 For each class it creates a new Component object and places the above details
 in that object. This module then outputs a dictionary containing the 
 Component objects for that file/folder    
@@ -97,6 +97,8 @@ class Extractor(ExtractionAbstract):
                 self.attribute_dictionary[attr_name] = search.attribute_extraction(line)
                 self.component.set_attributes(self.attribute_dictionary)
         except Exception as err:
+            print('Class has not been declared that contains '
+                  'the "{0}" attribute'.format(attribute_name[0]))
             print(err)
             raise
 
