@@ -1,9 +1,21 @@
-    def feeds(self):
+def feeds(self):
     print("milk")
 
 
-    def proliferates(self):
+def proliferates(self):
     pass
+
+
+class Mammal(object):
+    """ inserts out of place functions in code above. This tests that if a function has made it into the code
+     without being declared as belonging to a class it will be picked up"""
+
+    @staticmethod
+    def feeds():
+        print("milk")
+
+    def proliferates(self):
+        pass
 
 
 class Marsupial(Mammal):
@@ -25,11 +37,13 @@ class Carnivore(Mammal):
         print("meat eater")
 
 
+
 class Herbivore(Mammal, Carnivore):
     def __init__(self):
         self.teeth = "srp"
         self.skin = "furry"
         self.genus = {}
 
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("plant eater")

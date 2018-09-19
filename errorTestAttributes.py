@@ -1,14 +1,24 @@
-      self.teeth = "sharp"
-      self.eyes = 2
+    self.teeth = "sharp"
+
+
+class Mammal(object):
+    """ inserts out of place attribute code above. This tests that if an attribute has made it into the code
+     without being declared as belonging to a class it will be picked up"""
+
+    @staticmethod
+    def feeds():
+        print("milk")
 
 
 class Marsupial(Mammal):
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("poach")
 
 
 class Eutherian(Mammal):
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("placenta")
 
 
@@ -17,7 +27,8 @@ class Carnivore(Mammal):
         self.teeth = "sharp"
         self.eyes = 2
 
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("meat eater")
 
 
@@ -27,5 +38,6 @@ class Herbivore(Mammal, Carnivore):
         self.skin = "furry"
         self.genus = {}
 
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("plant eater")
