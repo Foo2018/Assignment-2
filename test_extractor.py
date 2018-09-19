@@ -5,7 +5,7 @@ from attribute_default_search import AttributeDefaultsSearch
 import io
 from unittest import mock
 
-""" 20 unit tests to test the extractor.py class providing 100% coverage """
+""" 10 unit tests to test the extractor.py class providing 100% coverage """
 
 
 class MainTests(unittest.TestCase):
@@ -30,7 +30,7 @@ class MainTests(unittest.TestCase):
             sys.stdout = saved_stdout
 
     def test_master(self):
-        "Tests the happy day scenario of an error free file being presented"
+        """Tests the happy day scenario of an error free file being presented to the program"""
         expected = True
         self.e.set_file("mammals.py")
         if len(self.e.component_dict) > 0:
@@ -40,7 +40,7 @@ class MainTests(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_master_error(self):
-        "Tests the bad day scenario of an error file being presented"
+        """Tests the bad day scenario of a file with syntax errors being presented"""
         expected = True
         self.e.set_file("mammals_attribute_error.py")
         if len(self.e.component_dict) > 0:
@@ -50,7 +50,7 @@ class MainTests(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_file_entered(self):
-        """ Tests if a correct file is entered that the _data_extraction method is called"""
+        """ Tests if a correct FILE is entered that the _data_extraction method is called"""
         # Arrange
         patcher = mock.patch.object(self.e, '_data_extraction')
         patched = patcher.start()
@@ -61,8 +61,8 @@ class MainTests(unittest.TestCase):
         patched.assert_called_with('Mammals.py')
 
     def test_folder_entered(self):
-        """ Tests if a correct folder is entered that the _data_extraction
-         method is called for each file found within that file tree"""
+        """ Tests if a correct FOLDER is entered that the _data_extraction
+         method is called for each file found within that folder file tree"""
         # Arrange
         patcher = mock.patch.object(self.e, '_data_extraction')
         patched = patcher.start()
@@ -74,6 +74,8 @@ class MainTests(unittest.TestCase):
                                    '\\TestFile.py')
 
     def test_stub_creation(self):
+        """ Tests that a stub class is created if a parent class is found that does not have a concrete
+        class created within the known file"""
         expected = True
         self.e.set_file("example.py")
         if self.e.component_dict:
@@ -83,9 +85,12 @@ class MainTests(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_attribute_extraction_when_no_init(self):
+        """Test to ensure only attributes declared in an __init__ method are extracted"""
         expected = True
         self.e.set_file("no_init.py")
-        if len(self.e.component_dict) > 0:
+        dict_method = self.e.get_component_dictionary()
+        dictionary = vars(dict_method['Alpha'])
+        if dictionary['attributes'] == []:
             actual = True
         else:
             actual = False
