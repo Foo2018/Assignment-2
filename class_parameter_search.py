@@ -1,7 +1,8 @@
 from search_abstract import SearchAbstract
 
 """
-This module searches the initial line data and decides if there are classnames, 
+This class searches the initial line data and extracts class parameters within those lines 
+(class, names, function names and attribute names)
 
 """
 

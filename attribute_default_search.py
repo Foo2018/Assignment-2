@@ -1,4 +1,6 @@
 from search_abstract import SearchAbstract
+"""This class receives a line of text that contains an attribute name and then extracts the attribute types and
+default values. It then places the result in a dictionary"""
 
 
 class AttributeDefaultsSearch(SearchAbstract):
