@@ -9,6 +9,7 @@ This class searches the initial line data and extracts class parameters within t
 
 class ClassParameterSearch(SearchAbstract):
     def __init__(self):
+        super().__init__()
         self.parameter_list = []
 
     def class_parameter_extractions(self, line):
@@ -27,6 +28,6 @@ class ClassParameterSearch(SearchAbstract):
         return self._regex_search(regex, line)
 
     def _extract_attributes(self, line):
-        regex = '\s{2}self\.(\w+)'
+        regex = 'self\.(\w+)'
         reg1 = self._regex_search(regex, line)
         return reg1
