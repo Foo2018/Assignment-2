@@ -9,7 +9,7 @@ Long Method
 * Code grew in length as more and more search features were added. 
 * The code is hard to follow as there are a number of ‘if’ and ‘elif’ statements each of which has a separate purpose
 * It will be much easier to read the method code and follow what it is doing with properly named methods, broken down into smaller chunks
-* Because the code is complicated to follow due to its length it is going to be the hardest to maintain and the most susceptible to having errors introduced into it. It is a critical part of the extractor feature so should something go wrong the result is fatal for module. It is therefore the worst of the three smells I have identified.
+* Because the code is complicated to follow due to its length it is going to be the hardest to maintain and the most susceptible to having errors introduced into it. It is a critical part of the extractor feature so should something go wrong the result is fatal for the module. It is therefore the worst of the three smells I have identified.
 ### Refactoring strategies/ approaches
 In order to reduce the size of the method I will be using;
 * **Extract methods**: I have identified 5 areas within the  _data_extraction() code that would benefit from being extracted out as methods thus reducing the original method size. These are:
@@ -40,21 +40,20 @@ Large Class
 * The number of methods will increase once the method extraction for bad smell one is completed
 * There are two obvious parts to the current class. Methods that place items in Component objects/ dictionaries and those that search text for relevant class diagram categories
 * There is potential for further types of data extraction to be required if more functionality is required in the future, for example extracting accessibility data. This will then increase the number of methods that undertake text search. By placing the two parts into separate classes this avoids one large bloated class and improves the maintainability of the classes.
-* This is the second worst smell of the three I have identified. A lengthy class has been created and is an effort to read and understand in its entirety. Splitting into two classes will improve readability, therefore maintainability.   
+* This is the second worst smell of the three I have identified. A lengthy class has been created and it is an effort to read and understand in its entirety. Splitting into two classes will improve readability, therefore maintainability.   
 ### Refactoring strategies/ approaches
 * **Extract Class**: This class effectively does the work of two. There are two clear areas of functionality.
 1. Collate class properties such as class names, function names and attribute names, values and types into dictionaries and ultimately component objects. This was initially handled by the:
    *  `_data_extraction()` method.
 
-   After refactoring to clear the 'Long Class" smell the following methods were extracted and added to the Extractor class 
-   to also deal with data collation:
+   After refactoring to clear the 'Long Class" smell from the `_data_extraction()` method. the following methods were extracted and added to the Extractor class to also deal with data collation.
     * `class_parameter_extractions()`
     * `_set_class_name()`
     * `_class_parent_name_handling()`
     * `_place_function_name_in_component_object()`
     * `_place_attribute_name_and_default_value_in_dictionary`  
  
-2. The second area of functionality for the class is searching input text for those class properties and returning the results. This is handled by:
+2. The second area of functionality for the Extractor class is searching input text for class properties and returning the results. This is handled by:
    * `_regex_search()`
    * `_extract_class()`
    * `_extract_parents()`
@@ -64,7 +63,7 @@ Large Class
    * `_extract_attribute_defaults()`
    * `_extract_attribute_data_types()`
 
-As can be seen the class, as well as being large, does not have single-responsibility. There are two clear purposes to the class. In particular the search aspect would likely be enlarged as the program becomes more sophisticated, thus adding to the class size, complexity and chance of breaking the collation side. Extracting a class from the existing Extractor class will increase its robustness. Therefore using the Extract Class refactoring method I will be extracting at least one class from the original based on the text search methods.
+As can be seen the Extractor class, as well as being large, does not have single-responsibility. There are two clear purposes to the class. In particular the search aspect would likely be enlarged as the program becomes more sophisticated, thus adding to the class size, complexity and chance of breaking the collation side. Extracting a class from the existing Extractor class will increase its robustness. Therefore using the Extract Class refactoring method I will be extracting at least one class from the original based on the text search methods.
 
 ### Result
 Upon examining the extraction methods that I wished to put into another class I decided that there were actually three different viable classes that could be made, each with a single search focus. These were:
@@ -72,9 +71,9 @@ Upon examining the extraction methods that I wished to put into another class I 
 * A class to search for and extract any parent class name(s) that an object may have. The class created was **ParentExtraction**
 * A class to search for and extract attribute defaults and data types. The class created was **AttributeDefaultsSearch**
 
-As can be seen these all have single responsibility and encapsulate methods that work on one type of data.
+As can be seen these all have single responsibility and encapsulate methods that work on one type of data.The transition to having three classes over and above to the Extractor class has worked very well and I am very pleased with the extra flexibility and future-proofing that it introduces into the program. 
 
-Creating these classes did have the side effect of creating a new bad smell - "Duplicate Code".   
+Creating these classes did, however, have the side effect of creating a new bad smell - "Duplicate Code".   
 
 ## 3.	Bad Smell Three
 ### Name:
@@ -100,9 +99,9 @@ Switch Statements
 `attribute_default_search.py` > Class name – AttributeDefaultsSearch() > Method name - `_extract_attribute_data_types()` > Lines 150 -171
 ### Reasons: 
 * The `_extract_attribute_data_types()` method contains a long 'elif' statement. This falls into the 'Switch Statements'smell
-* There are no switch statements in Python but long 'elifs' are the equivalent and considered to not be good OOP practice
+* There are no switch statements in Python but long 'elifs' are the equivalent and are considered to not be good OOP practice
 * Switch (elifs) can introduce complications and can grow unwieldy over time, becoming hard to be maintained.
-* This particular 'elif' does has the potential to grow very large as the program becomes more sophisticated and requires more items to be searched for
+* This particular 'elif' does have the potential to grow very large as the program becomes more sophisticated and requires more items to be searched for
 ### Refactoring strategies/ approaches
 The approaches that were experimented with were:
 * Replacing conditional with polymorphism
@@ -110,7 +109,7 @@ The approaches that were experimented with were:
 * Replace nested conditional with guard clauses
  
 ### Result
-I considered and tried a number of approaches to reduce this 'elif' statement. I looked at ways to introduce polymorphism but I felt that the search data, being mostly singular, non-alphabetic characters did not lend themselves to my understanding of this method which uses classes. I tried a number of ways but could not get it to work. Using a strategy pattern is another way of dealing with conditionals but I had similar issues to polymorphism. I feel that these two approaches were probably overkill for this particular issue. Another 'pythonic' approach was to place the input data in a dictionary as keys and have the return data as values. This worked very well for most situations, however two comparisons in the 'elif' use the Python string methods isalpha() and isdigit() and these would not translate to being used as a dictionary key. I tried a hybrid of using the isalpha() and isdigit() still within an elif statement combined with the remaining comparisons within a dictionary. I was not happy with the results.
+I considered and tried a number of approaches to reduce this 'elif' statement. I looked at ways to introduce polymorphism but I felt that the search data, being mostly singular, non-alphabetic characters did not lend themselves to my understanding of this method which uses classes. I tried a number of ways but could not get it to work. Using a strategy pattern is another way of dealing with conditionals but I had similar issues to polymorphism. I feel that these two approaches were probably overkill for this particular example. Another 'pythonic' approach was to place the input data in a dictionary as keys and have the return data as values. This worked very well for most situations, however two comparisons in the 'elif' use the Python string methods isalpha() and isdigit() and these would not translate to being used as a dictionary key. I tried a hybrid of using the isalpha() and isdigit() still within an elif statement combined with the remaining comparisons within a dictionary. I was not happy with the results.
 Lastly I tried using 'guard clauses'. This worked fine and has simplified the look of the statement overall and introduces a flat structure. This elif clause performs relatively simple actions but does have the potential to become unwieldy so can benefit from some refactoring as I have done.   
 
 
