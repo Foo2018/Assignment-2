@@ -1,5 +1,7 @@
 from extractor import Extractor
 
+""" Inserts illegal character '@' into Herbivore class attributes also an attribute with no value"""
+
 
 class Mammal(object):
     def feeds(self):
@@ -29,8 +31,6 @@ class Carnivore(Mammal):
 
 
 class Herbivore(Mammal, Carnivore):
-    """ Inserts illegal character into Herbivore class attributes also an attribute with no value"""
-
     def __init__(self):
         self.teeth = "srp"
         self.nose = ""

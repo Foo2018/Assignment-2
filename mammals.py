@@ -1,10 +1,13 @@
 from extractor import Extractor
 
+""" Test Python file for file extractor. Also provides test 
+if an attribute declared outside of an __init__"""
+
 
 class Mammal(object):
-    """ Test Python file for file extractor"""
 
-    def feeds(self):
+    @staticmethod
+    def feeds():
         print("milk")
 
     def proliferates(self):
@@ -41,5 +44,6 @@ class Herbivore(Mammal, Carnivore):
         self.spots = ()
         self.claws = []
 
-    def proliferates(self):
+    @staticmethod
+    def proliferates():
         print("plant eater")

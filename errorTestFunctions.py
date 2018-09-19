@@ -1,3 +1,7 @@
+""" inserts out of place functions in code above. This tests that if a function has made it into the code
+     without being declared as belonging to a class it will be picked up"""
+
+
 def feeds(self):
     print("milk")
 
@@ -7,9 +11,6 @@ def proliferates(self):
 
 
 class Mammal(object):
-    """ inserts out of place functions in code above. This tests that if a function has made it into the code
-     without being declared as belonging to a class it will be picked up"""
-
     @staticmethod
     def feeds():
         print("milk")
@@ -35,7 +36,6 @@ class Carnivore(Mammal):
 
     def proliferates(self):
         print("meat eater")
-
 
 
 class Herbivore(Mammal, Carnivore):

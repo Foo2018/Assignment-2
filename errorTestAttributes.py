@@ -1,9 +1,11 @@
-    self.teeth = "sharp"
+""" inserts out of place attribute code above. This tests that if an attribute has made it into the code
+     without being declared as belonging to a class it will be picked up"""
+from mock.mock import self
+
+self.teeth = "sharp"
 
 
 class Mammal(object):
-    """ inserts out of place attribute code above. This tests that if an attribute has made it into the code
-     without being declared as belonging to a class it will be picked up"""
 
     @staticmethod
     def feeds():

@@ -1,6 +1,5 @@
 import shelve
 from extractor import Extractor
-from collections import OrderedDict
 
 """This module consists of functions that serializes and de-serializes 
     the data of Component objects and storing them into a database known as a shelf. 
