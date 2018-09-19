@@ -2,7 +2,7 @@ import re
 from search_abstract import SearchAbstract
 
 """
-
+This class receives a line containing a class name and extracts parent classes, if there are any to extract
 
 """
 
