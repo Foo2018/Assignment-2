@@ -2,8 +2,6 @@ from extractor import Extractor
 
 
 class Mammal(object):
-    """ Test Python file for file extractor"""
-
     def feeds(self):
         print("milk")
 
@@ -31,6 +29,8 @@ class Carnivore(Mammal):
 
 
 class Herbivore(Mammal, Carnivore):
+    """ Inserts illegal character into Herbivore class attributes also an attribute with no value"""
+
     def __init__(self):
         self.teeth = "srp"
         self.nose = ""
@@ -38,7 +38,7 @@ class Herbivore(Mammal, Carnivore):
         self.e = Extractor()
         self.spots = ()
         self.fur = @
-        self.tail
+        self.color
 
     def proliferates(self):
         print("plant eater")
