@@ -71,9 +71,10 @@ class Extractor(ExtractionAbstract):
         parent = parent_search.extract_parent_classes(line)
         for item in parent:
             parent = self.component_dict.get(item)
-            self._create_new_parent_class_if_nonexistant(parent, item, comp)
+            self._create_new_parent_class_if_non_existent(parent, item, comp)
 
-    def _create_new_parent_class_if_nonexistant(self, parent, item, comp):
+    @staticmethod
+    def _create_new_parent_class_if_non_existent(parent, item, comp):
         if parent is None:
             parent = Component()
             parent.set_name(item)
