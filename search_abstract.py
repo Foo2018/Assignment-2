@@ -4,6 +4,9 @@ import re
 
 class SearchAbstract(ABC):
 
+    def __init__(self):
+        pass
+
     @staticmethod
     def _regex_search(regex, data):
         r = re.compile(regex)
