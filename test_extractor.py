@@ -1,7 +1,6 @@
 import unittest
 import sys
 from extractor import Extractor
-from attribute_default_search import AttributeDefaultsSearch
 import io
 from unittest import mock
 
@@ -78,11 +77,13 @@ class MainTests(unittest.TestCase):
         class created within the known file"""
         expected = True
         self.e.set_file("example.py")
-        if self.e.component_dict:
+        dict_method = self.e.get_component_dictionary()
+        dictionary = vars(dict_method['Aframe'])
+        if dictionary['parents']:
             actual = True
         else:
             actual = False
-        self.assertEqual(actual, expected)
+        self.assertEqual(expected, actual)
 
     def test_attribute_extraction_when_no_init(self):
         """Test to ensure only attributes declared in an __init__ method are extracted"""
@@ -90,7 +91,7 @@ class MainTests(unittest.TestCase):
         self.e.set_file("no_init.py")
         dict_method = self.e.get_component_dictionary()
         dictionary = vars(dict_method['Alpha'])
-        if dictionary['attributes'] == []:
+        if not dictionary['attributes']:
             actual = True
         else:
             actual = False
