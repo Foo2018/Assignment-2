@@ -4,25 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6812df83-e0a8-425e-a90e-58732bc15cd5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attribute_default_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/attribute_default_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class_parameter_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_parameter_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorTestAttributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/errorTestAttributes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorTestFunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/errorTestFunctions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.py" beforeDir="false" afterPath="$PROJECT_DIR$/example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mammals.py" beforeDir="false" afterPath="$PROJECT_DIR$/mammals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mammals_attribute_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/mammals_attribute_error.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/no_init.py" beforeDir="false" afterPath="$PROJECT_DIR$/no_init.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/class-diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/class-diagram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parent_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/parent_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search_abstract.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_abstract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shelf.py" beforeDir="false" afterPath="$PROJECT_DIR$/shelf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml_components.db" beforeDir="false" afterPath="$PROJECT_DIR$/uml_components.db" afterDir="false" />
-    </list>
+    <list default="true" id="6812df83-e0a8-425e-a90e-58732bc15cd5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +23,14 @@
     <SUITE FILE_PATH="coverage/Assignment_2$textsearch.coverage" NAME="textsearch Coverage Results" MODIFIED="1537088374229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$Doctests_in_component.coverage" NAME="Doctests in component Coverage Results" MODIFIED="1534771283679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Doctests_in_commandline.coverage" NAME="Doctests in commandline Coverage Results" MODIFIED="1537178463679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Assignment_2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1537353317728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1537354034582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_attribute_default_search_MainTests_test_extract_defaults_data_types.coverage" NAME="Unittests for test_attribute_default_search.MainTests.test_extract_defaults_data_types Coverage Results" MODIFIED="1537149995219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_attribute_default_search_MainTests_test_data_type_object_extraction.coverage" NAME="Unittests for test_attribute_default_search.MainTests.test_data_type_object_extraction Coverage Results" MODIFIED="1537149868585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$extractor.coverage" NAME="extractor Coverage Results" MODIFIED="1537351948422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$commandline.coverage" NAME="commandline Coverage Results" MODIFIED="1536452546177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$Doctests_in_doctest_tests.coverage" NAME="Doctests in doctest tests Coverage Results" MODIFIED="1534762279052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_extractor_MainTests_test_attribute_extraction_when_no_init.coverage" NAME="Unittests for test_extractor.MainTests.test_attribute_extraction_when_no_init Coverage Results" MODIFIED="1537352042694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Assignment_2$Unittests_in_test_extractor_py.coverage" NAME="Unittests in test_extractor.py Coverage Results" MODIFIED="1537353476962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_2$Unittests_in_test_extractor_py.coverage" NAME="Unittests in test_extractor.py Coverage Results" MODIFIED="1537354020946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$extraction_abstract.coverage" NAME="extraction_abstract Coverage Results" MODIFIED="1534908599750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/umlifyv2$extractor.coverage" NAME="extractor Coverage Results" MODIFIED="1534971660365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Assignment_2$Unittests_for_test_extractor_MainTests_test_master.coverage" NAME="Unittests for test_extractor.MainTests.test_master Coverage Results" MODIFIED="1537151505034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -158,20 +140,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_extractor.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="87" column="46" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -319,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_extractor.py">
+  <component name="RunManager" selected="Python.commandline">
     <configuration name="commandline" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="umlifyv2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -418,8 +387,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in test_extractor.py" />
         <item itemvalue="Python.commandline" />
+        <item itemvalue="Python tests.Unittests in test_extractor.py" />
         <item itemvalue="Python tests.Unittests for test_extractor.MainTests.test_attribute_extraction_when_no_init" />
         <item itemvalue="Python tests.Unittests for test_extractor.MainTests.test_stub_creation" />
         <item itemvalue="Python.extractor" />
@@ -440,9 +409,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_test_extractor_MainTests_test_stub_creation - 2018.09.19 at 22h 11m 31s.xml">
-      <configuration name="Unittests for test_extractor.MainTests.test_stub_creation" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_for_test_extractor_MainTests_test_stub_creation - 2018.09.19 at 22h 12m 18s.xml">
       <configuration name="Unittests for test_extractor.MainTests.test_stub_creation" configurationId="tests" />
     </history-entry>
@@ -470,6 +436,9 @@
     <history-entry file="Unittests_in_test_extractor_py - 2018.09.19 at 22h 37m 57s.xml">
       <configuration name="Unittests in test_extractor.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_test_extractor_py - 2018.09.19 at 22h 47m 01s.xml">
+      <configuration name="Unittests in test_extractor.py" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,14 +451,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2728" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.102345414" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.102345414" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32821497" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2715931" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2715931" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3996004" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
